@@ -1,3 +1,6 @@
+<?php
+    include  "condb.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,26 @@
     <title>First website</title>
 </head>
 <body>
-    <h1>Hello world</h1>
+<?php
+    $sql = "SELECT * FROM member";
+    $hand = mysqli_query($conn, $sql);
+    while($row=mysqli_fetch_array($hand)){
+        ?>
+      <h1><?=$row['id'] ?></h1>
+
+<h1><?=$row['name'] ?></h1>
+
+<h1><?=$row['surname'] ?></h1>
+
+<h1><?=$row['telephone'] ?></h1>
+      
+
+
+      <?php
+    }
+    mysqli_close($conn);
+    ?>
 </body>
 </html> 
+<?php
+   
